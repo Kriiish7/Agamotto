@@ -3,6 +3,7 @@ pub mod excluded_list;
 pub mod home;
 pub mod metrics_panel;
 pub mod navbar;
+pub mod saved_schedules;
 pub mod schedule_list;
 pub mod schedule_view;
 pub mod task_form;

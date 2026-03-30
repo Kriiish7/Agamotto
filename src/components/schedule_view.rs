@@ -1,6 +1,6 @@
 use super::{
-    excluded_list::ExcludedList, metrics_panel::MetricsPanel, schedule_list::ScheduleList,
-    timeline::Timeline,
+    excluded_list::ExcludedList, metrics_panel::MetricsPanel, saved_schedules::SavedSchedules,
+    schedule_list::ScheduleList, timeline::Timeline,
 };
 use crate::state;
 use dioxus::prelude::*;
@@ -30,10 +30,15 @@ pub fn ScheduleView() -> Element {
     rsx! {
         div { class: "page schedule-page",
             div { class: "schedule-header",
-                h1 { "Your Schedule" }
-                span { class: "mode-badge", "{mode_label}" }
-                Link { to: crate::Route::Home {}, class: "btn btn-secondary",
-                    "← Back to Plan"
+                div { class: "schedule-header-left",
+                    h1 { "Your Schedule" }
+                    span { class: "mode-badge", "{mode_label}" }
+                }
+                div { class: "schedule-header-right",
+                    SavedSchedules {}
+                    Link { to: crate::Route::Home {}, class: "btn btn-secondary",
+                        "← Back to Plan"
+                    }
                 }
             }
             Timeline {}
