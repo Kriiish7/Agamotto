@@ -1,6 +1,10 @@
 pub mod config_panel;
+pub mod excluded_list;
 pub mod home;
+pub mod metrics_panel;
 pub mod navbar;
+pub mod schedule_list;
 pub mod schedule_view;
 pub mod task_form;
 pub mod task_list;
+pub mod timeline;
