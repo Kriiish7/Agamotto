@@ -8,3 +8,6 @@ pub mod functions;
 pub mod convex_client;
 #[cfg(feature = "server")]
 pub mod persistence;
+
+#[cfg(test)]
+mod tests;
