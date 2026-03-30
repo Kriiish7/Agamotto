@@ -88,7 +88,7 @@ impl Default for ScheduleMetrics {
     }
 }
 
-fn uuid_v4() -> String {
+pub fn uuid_v4() -> String {
     format!(
         "{:08x}-{:04x}-{:04x}-{:04x}-{:012x}",
         rand_u32(),
