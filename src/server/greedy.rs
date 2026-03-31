@@ -14,7 +14,7 @@ pub fn schedule_serenity(tasks: &[Task], available_time: u32) -> Schedule {
         .iter()
         .enumerate()
         .map(|(i, t)| {
-            let density = t.priority as f64 / t.duration.max(1) as f64;
+            let density = (t.priority as f64 + t.emotional_weight * 2.0) / t.duration.max(1) as f64;
             (i, density)
         })
         .collect();

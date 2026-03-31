@@ -1,3 +1,4 @@
+use super::debt_counter::DebtCounter;
 use crate::Route;
 use dioxus::prelude::*;
 
@@ -26,6 +27,7 @@ pub fn Navbar() -> Element {
                     class: "navbar-link",
                     "Schedule"
                 }
+                DebtCounter {}
             }
         }
     }

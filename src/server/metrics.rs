@@ -36,7 +36,8 @@ pub fn compute_metrics(schedule: &mut Schedule, all_tasks: &[Task]) {
                 1.0
             };
             let priority_weight = st.task.priority as f64 / max_priority;
-            st.task.duration as f64 * position_weight * priority_weight
+            let emotional = st.task.emotional_weight;
+            st.task.duration as f64 * position_weight * (priority_weight + emotional)
         })
         .sum();
     schedule.metrics.stress_index = if w > 0.0 && max_priority > 0.0 {
@@ -91,6 +92,14 @@ pub fn compute_metrics(schedule: &mut Schedule, all_tasks: &[Task]) {
     schedule.metrics.overload_flag = schedule.metrics.stress_index > 0.65
         && schedule.metrics.time_utilisation > 90.0
         && avg_emotional > 0.5;
+
+    schedule.metrics.decision_debt = super::debt::compute_decision_debt(all_tasks);
+    schedule.metrics.identity_conflicts = super::identity::detect_identity_conflicts(scheduled);
+    schedule.metrics.failure_points =
+        super::forecast::forecast_failure_points(scheduled, schedule.available_time);
+
+    let momentum = super::momentum::apply_momentum_ordering(&mut schedule.tasks);
+    schedule.metrics.momentum_score = momentum;
 }
 
 fn parse_iso_to_secs(iso: &str) -> Result<f64, ()> {

@@ -22,7 +22,7 @@ pub fn schedule_crunch(tasks: &[Task], available_time: u32) -> Schedule {
         .iter()
         .map(|t| {
             let urgency = compute_urgency(t, now);
-            t.priority as f64 * (1.0 + urgency)
+            t.priority as f64 * (1.0 + urgency) * (1.0 + t.emotional_weight * 0.5)
         })
         .collect();
 

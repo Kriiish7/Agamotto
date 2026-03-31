@@ -1,6 +1,8 @@
 use super::{
-    excluded_list::ExcludedList, metrics_panel::MetricsPanel, saved_schedules::SavedSchedules,
-    schedule_list::ScheduleList, timeline::Timeline,
+    excluded_list::ExcludedList, failure_markers::FailureMarkers, identity_alerts::IdentityAlerts,
+    metrics_panel::MetricsPanel, momentum_indicator::MomentumIndicator,
+    overload_banner::OverloadBanner, saved_schedules::SavedSchedules, schedule_list::ScheduleList,
+    timeline::Timeline,
 };
 use crate::state;
 use dioxus::prelude::*;
@@ -41,6 +43,9 @@ pub fn ScheduleView() -> Element {
                     }
                 }
             }
+            OverloadBanner {}
+            FailureMarkers {}
+            IdentityAlerts {}
             Timeline {}
             div { class: "schedule-body",
                 div { class: "schedule-left",
@@ -49,6 +54,7 @@ pub fn ScheduleView() -> Element {
                 }
                 div { class: "schedule-right",
                     MetricsPanel {}
+                    MomentumIndicator {}
                 }
             }
         }

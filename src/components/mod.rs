@@ -1,8 +1,13 @@
 pub mod config_panel;
+pub mod debt_counter;
 pub mod excluded_list;
+pub mod failure_markers;
 pub mod home;
+pub mod identity_alerts;
 pub mod metrics_panel;
+pub mod momentum_indicator;
 pub mod navbar;
+pub mod overload_banner;
 pub mod saved_schedules;
 pub mod schedule_list;
 pub mod schedule_view;

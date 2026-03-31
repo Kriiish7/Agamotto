@@ -798,3 +798,195 @@ a:hover { color: #93bbfc; }
 ::-webkit-scrollbar-thumb:hover {
     background: #3d4155;
 }
+
+/* ===== Phase 8 Components ===== */
+
+/* Overload Banner */
+.overload-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: #451a1a;
+    border: 1px solid #7f1d1d;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+
+.overload-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.overload-content {
+    flex: 1;
+}
+
+.overload-content strong {
+    color: #fca5a5;
+    font-size: 0.95rem;
+}
+
+.overload-content p {
+    margin: 4px 0 0;
+    font-size: 0.85rem;
+    color: #f87171;
+}
+
+.overload-suggestion {
+    font-size: 0.8rem !important;
+    color: #fbbf24 !important;
+    margin-top: 6px !important;
+}
+
+/* Failure Markers */
+.failure-markers {
+    background: #1a1d27;
+    border: 1px solid #2d3140;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.failure-markers h3 {
+    margin: 0 0 12px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f1f5f9;
+}
+
+.failure-marker {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #451a1a;
+    border: 1px solid #7f1d1d;
+    margin-bottom: 6px;
+}
+
+.failure-marker-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.failure-marker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.failure-marker-header strong {
+    color: #fca5a5;
+    font-size: 0.85rem;
+}
+
+.failure-risk-score {
+    font-size: 0.75rem;
+    color: #f87171;
+    font-weight: 600;
+}
+
+.failure-marker-reason {
+    margin: 4px 0 0;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+/* Momentum Indicator */
+.momentum-indicator {
+    background: #1a1d27;
+    border: 1px solid #2d3140;
+    border-radius: 12px;
+    padding: 14px;
+    margin-top: 12px;
+}
+
+/* Debt Counter */
+.debt-counter {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 12px;
+}
+
+.debt-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    border-radius: 11px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: white;
+    padding: 0 6px;
+}
+
+.debt-label {
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+/* Identity Alerts */
+.identity-alerts {
+    background: #1a1d27;
+    border: 1px solid #2d3140;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.identity-alerts h3 {
+    margin: 0 0 12px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f1f5f9;
+}
+
+.identity-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    margin-bottom: 6px;
+}
+
+.identity-alert-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.identity-alert-content p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #e2e8f0;
+}
+
+.identity-alert-suggestion {
+    font-size: 0.75rem !important;
+    color: #94a3b8 !important;
+    font-style: italic;
+    margin-top: 4px !important;
+}
+
+/* Category Select */
+.form-group select {
+    width: 100%;
+    padding: 8px 12px;
+    background: #0f1116;
+    border: 1px solid #2d3140;
+    border-radius: 8px;
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    outline: none;
+    cursor: pointer;
+}
+
+.form-group select:focus {
+    border-color: #60a5fa;
+}

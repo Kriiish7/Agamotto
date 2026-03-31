@@ -9,6 +9,8 @@ pub fn TaskForm() -> Element {
     let mut priority = use_signal(|| 3u8);
     let mut deadline = use_signal(String::new);
     let mut tags = use_signal(String::new);
+    let mut emotional_weight = use_signal(|| 0.0f64);
+    let mut category = use_signal(String::new);
 
     let mut error_msg = use_signal(String::new);
 
@@ -99,6 +101,41 @@ pub fn TaskForm() -> Element {
                 }
             }
 
+            div { class: "form-group",
+                label { "Category (optional)" }
+                select {
+                    value: category,
+                    onchange: move |e| category.set(e.value()),
+                    option { value: "", "None" }
+                    option { value: "student", "Student" }
+                    option { value: "developer", "Developer" }
+                    option { value: "applicant", "Applicant" }
+                    option { value: "personal", "Personal" }
+                    option { value: "health", "Health" }
+                }
+            }
+
+            div { class: "form-group",
+                label { "Emotional Weight: {format_emotional(emotional_weight())}" }
+                input {
+                    r#type: "range",
+                    min: "0",
+                    max: "100",
+                    step: "10",
+                    value: "{(emotional_weight() * 100.0) as u32}",
+                    oninput: move |e| {
+                        if let Ok(v) = e.value().parse::<u32>() {
+                            emotional_weight.set(v as f64 / 100.0);
+                        }
+                    },
+                }
+                div { class: "range-labels",
+                    span { "Light" }
+                    span { "Moderate" }
+                    span { "Heavy" }
+                }
+            }
+
             button {
                 class: "btn btn-primary",
                 onclick: move |_| {
@@ -119,6 +156,7 @@ pub fn TaskForm() -> Element {
                         .collect();
 
                     let dl = if deadline().is_empty() { None } else { Some(deadline()) };
+                    let cat = if category().is_empty() { None } else { Some(category()) };
 
                     let task = Task {
                         id: crate::types::uuid_v4(),
@@ -127,8 +165,8 @@ pub fn TaskForm() -> Element {
                         priority: priority(),
                         deadline: dl,
                         tags: parsed_tags,
-                        emotional_weight: 0.0,
-                        category: None,
+                        emotional_weight: emotional_weight(),
+                        category: cat,
                     };
 
                     state::TASKS.write().push(task);
@@ -139,10 +177,22 @@ pub fn TaskForm() -> Element {
                     priority.set(3);
                     deadline.set(String::new());
                     tags.set(String::new());
+                    category.set(String::new());
+                    emotional_weight.set(0.0);
                     error_msg.set(String::new());
                 },
                 "Add Task"
             }
         }
+    }
+}
+
+fn format_emotional(w: f64) -> String {
+    if w < 0.33 {
+        "Light".into()
+    } else if w < 0.66 {
+        "Moderate".into()
+    } else {
+        "Heavy".into()
     }
 }

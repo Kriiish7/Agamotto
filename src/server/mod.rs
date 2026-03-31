@@ -4,6 +4,13 @@ pub mod edf;
 pub mod metrics;
 pub mod functions;
 
+pub mod forecast;
+pub mod momentum;
+pub mod debt;
+pub mod identity;
+pub mod recovery;
+pub mod regret;
+
 #[cfg(feature = "server")]
 pub mod convex_client;
 #[cfg(feature = "server")]
