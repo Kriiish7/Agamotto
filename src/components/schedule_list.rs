@@ -1,3 +1,4 @@
+use super::what_if_panel::WhatIfPanel;
 use crate::server::metrics;
 use crate::state;
 use dioxus::prelude::*;
@@ -79,6 +80,12 @@ pub fn ScheduleList() -> Element {
                     if st.deadline_risk > 0.5 {
                         div { class: "schedule-row-risk",
                             "⚠ {st.deadline_risk:.0}%"
+                        }
+                    }
+                    if st.task.priority > 0 {
+                        WhatIfPanel {
+                            task_id: st.task.id.clone(),
+                            task_name: st.task.name.clone(),
                         }
                     }
                 }

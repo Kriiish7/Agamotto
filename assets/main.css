@@ -990,3 +990,55 @@ a:hover { color: #93bbfc; }
 .form-group select:focus {
     border-color: #60a5fa;
 }
+
+/* What-If Panel */
+.what-if-panel {
+    display: inline-flex;
+    align-items: center;
+}
+
+.what-if-options {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    margin-left: 4px;
+}
+
+.what-if-result {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-left: 8px;
+    font-style: italic;
+}
+
+/* Habit Alert */
+.habit-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+
+.habit-alert-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.habit-alert-content {
+    flex: 1;
+}
+
+.habit-alert-content strong {
+    color: #e2e8f0;
+    font-size: 0.95rem;
+}
+
+.habit-alert-content p {
+    margin: 4px 0 0;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}

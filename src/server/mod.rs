@@ -10,6 +10,8 @@ pub mod debt;
 pub mod identity;
 pub mod recovery;
 pub mod regret;
+pub mod simulation;
+pub mod habit;
 
 #[cfg(feature = "server")]
 pub mod convex_client;
